@@ -1,0 +1,1535 @@
+
+        
+        <div class="container">
+        
+        
+
+        <style>
+
+
+        
+        
+        .container {
+            margin-top:25px;
+            border: 10px solid #55c360;
+            overflow: hidden;
+            cursor: default;
+            width:500px;
+            height: auto;
+            margin-bottom:30px;
+            background-color: #c8eccd; 
+            padding: 5px;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+
+    
+    
+    
+    
+    
+    
+    body {
+        
+        background: #F4F4F4;
+        margin: auto;
+        padding: 20px;
+        text-align: center;
+        background: #1A202C;
+    }
+
+
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    
+
+    #header {
+        font-size: 1.5em;
+        color: #565656;
+        font-weight: bold;
+    }
+
+    #timer {
+        font-family: "FreeMono", monospace;
+        font-size: 3.8em;
+        margin: auto;
+        border: 2px solid #55c360;
+        background-color: #55c360;
+        border-radius: 17px;
+        margin-bottom: 5px;
+        margin-top: 8px;
+        min-width: 480px;
+        width: 15px;
+        font-weight: bold;
+        transition: color 0.3s ease;
+        color: #fff;
+        cursor: default;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        height: 70px;
+
+    }    #designer {
+        font-family: "FreeMono", monospace;
+        font-size: 0em;
+        margin: auto;
+        border: 0px solid #55c360;
+        background-color: #971e22;
+        border-radius: 17px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        min-width: 480px;
+        width: 15px;
+        font-weight: bold;
+        transition: color 0.3s ease;
+        color: #fff;
+        cursor: default;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        height: 0px;
+    }
+    
+
+    .timer-btn {
+        
+        font-size: 2em;
+        padding: 8px 15px;
+        margin: 10px cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.1s ease;
+        width: 160px;
+    }
+
+
+
+
+    #startBtn {
+        background-color: #55c360;
+        color: white;
+        text-align: center;
+        font-size: 1.5em;
+        padding: 10px;
+        margin: auto;
+        Width: 140px;
+        Border-radius: 15px;
+    }
+
+
+
+    #pauseBtn {
+        background-color: #ffc107;
+        color: #565656;
+        margin: auto;
+        font-size: 1.5em;
+        padding: 10px;
+        margin-bottom: 10px;
+        Width: 140px;
+        Border-radius: 15px;
+    }
+
+    #resumeBtn {
+        background-color: #2baffc;
+        color: white;
+        font-size: 1.5em;
+        padding: 10px;
+        margin: 20px;
+        Width: 140px;
+        Border-radius: 15px;
+
+    }
+
+    #stopBtn {
+        background-color: #e34045;
+        color: white;
+        margin: auto;
+        font-size: 1.5em;
+        padding: 10px;
+        margin: 20px;
+        Width: 140px;
+        Border-radius: 15px;
+    }
+
+    #resetBtn {
+        background-color: #2baffc;
+        color: white;
+        font-size: 1.5em;
+        padding: 10px;
+        margin: auto;
+        Width: 140px;
+        Border-radius: 15px;
+
+    }
+    
+
+    .timer-btn:hover,
+    #startBtn:hover,
+    #pauseBtn:hover,
+    #resumeBtn:hover,
+    #stopBtn:hover,
+    #resetBtn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #startBtn,
+    #pauseBtn,
+    #resumeBtn,
+    #stopBtn,
+    #resetBtn {
+        font-family: "FreeMono", monospace;
+        font-size: 1.em;
+        font-weight: bold;
+        padding: 1.5px;
+        position: relative;
+        align-items: center display: flex;
+        margin: 5px;
+        width: 153px;
+        height: 35px;
+        border-radius: 12px;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+
+
+
+
+    }
+    
+
+    @keyframes slideIn {
+        from {
+            transform: translateY(-20px);
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    #elapsedTime {
+        font-size: 0em;
+        font-weight: bold;
+        margin-top: 10px;
+        color: #e34045;
+    }
+
+
+
+    label {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: #495057;
+
+    }
+    
+    
+    
+
+
+    #jobDetails .field-btn {
+        font-family: "FreeMono", monospace;
+        display: inline-block;
+        height: 35px;
+        width: 237px;
+        margin: 5px;
+        margin-top: 3px;
+        border: 2px solid #55c360;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        background-color: #1a202c;
+        color: #fff;
+        font-size: 22px;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 4px;
+    }
+
+    #jobDetails .field-btn:hover {
+        background-color: #1a202c;
+        color: #fff;
+        transform: scale(1.05);
+    }
+        .random-code-button {
+            font-family: "FreeMono", monospace;
+            flex: 1;
+            display: inline-block;
+            align-items: center;
+            justify-content: space-evenly;
+            position: relative;
+            width: 111px;
+            height: 40px;
+            border: 2px solid #55c360;
+            border-radius: 15px;
+            margin: 5px;
+            margin-top: -2px;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 13px;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+            animation: fadeIn 0.5s ease;
+            cursor: pointer;
+            background-color: #1a202c;
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        .random-code-button:hover {
+            background-color: #56c361;
+            color: #fff;
+            transform: scale(1.05);
+            font-size: 15px;
+        }
+
+        .random-code-button:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Apply fadeInUp animation to buttons */
+
+        .random-code-button {
+            animation: fadeInUp 0.8s ease;
+        }
+        </style>
+
+	  <div id="designer">Designer</div>
+        <div id="timer">00:00:00.000</div>
+        <button id="startBtn" class="timer-btn" onclick="startTimer()">START</button>
+        <button id="stopBtn" class="timer-btn" onclick="stopTimer()">STOP</button>
+        <button id="resetBtn" class="timer-btn" onclick="resetTimer()">RESET</button>
+
+        <div id="jobDetails">
+
+            <button id="jobID" class="field-btn rounded-rectangle" onclick="copyToClipboard('jobID')" style="background-color: rgb(26, 32, 44);">24351</button>
+
+
+            <button id="instanceID" class="field-btn rounded-rectangle" onclick="copyToClipboard('instanceID')" style="background-color: rgb(26, 32, 44);">11350</button>
+        </div>
+
+
+
+        <div id="elapsedTime"></div>
+
+        <div id="footer">
+        </div>
+
+
+        <!-- Buttons for random code generation -->
+        <button class="random-code-button" onclick="generateRandomCode('DOWNTIME')">DOWNTIME</button>
+        <button class="random-code-button" onclick="generateRandomCode('BREAK')">BREAK</button>
+        <button class="random-code-button" onclick="generateRandomCode('COACHING')">COACHING</button>
+        <button class="random-code-button" onclick="generateRandomCode('PRACTICE')">PRACTICE</button>
+
+
+
+        <script>
+        
+        let timerInterval;
+        let timerStartTime;
+        let timerRunning = false;
+        let timerPaused = false;
+        let pausedTime = 0;
+
+        function startTimer() {
+            if (!timerRunning) {
+                if (timerPaused) {
+                    timerStartTime = Date.now() - pausedTime;
+                } else {
+                    timerStartTime = Date.now();
+                }
+                timerInterval = setInterval(updateTimer, 10);
+                timerRunning = true;
+                timerPaused = false;
+            }
+        }
+
+        function pauseTimer() {
+            if (timerRunning && !timerPaused) {
+                clearInterval(timerInterval);
+                pausedTime = Date.now() - timerStartTime;
+                timerPaused = true;
+            }
+        }
+
+        function resumeTimer() {
+            if (timerRunning && timerPaused) {
+                timerStartTime = Date.now() - pausedTime;
+                timerInterval = setInterval(updateTimer, 10);
+                timerPaused = false;
+            }
+        }
+
+        function stopTimer() {
+            if (timerRunning) {
+                clearInterval(timerInterval);
+                timerRunning = false;
+
+                // Display elapsed time
+                const elapsedTime = Date.now() - timerStartTime;
+                const formattedElapsedTime = formatTime(elapsedTime);
+                document.getElementById('elapsedTime').innerText = `Elapsed Time: ${formattedElapsedTime}`;
+            }
+        }
+
+        function resetTimer() {
+            stopTimer();
+            document.getElementById('timer').innerText = '00:00:00.000';
+            document.getElementById('elapsedTime').innerText = '';
+            generateRandomJobID();
+            generateRandomInstanceID();
+        }
+
+        function updateTimer() {
+            const currentTime = Date.now();
+            const elapsedTime = currentTime - timerStartTime;
+            const formattedTime = formatTime(elapsedTime);
+            document.getElementById('timer').innerText = formattedTime;
+        }
+
+        function formatTime(milliseconds) {
+            const hours = Math.floor(milliseconds / 3600000);
+            const minutes = Math.floor((milliseconds % 3600000) / 60000);
+            const seconds = Math.floor((milliseconds % 60000) / 1000);
+            const millis = milliseconds % 1000;
+
+            return (
+                padZero(hours) + ':' +
+                padZero(minutes) + ':' +
+                padZero(seconds) + '.' +
+                padZero(millis, 3)
+            );
+        }
+
+        function padZero(value, length = 2) {
+            return value.toString().padStart(length, '0');
+        }
+
+        function generateRandomJobID() {
+            const randomJobID = Math.floor(10000 + Math.random() * 90000); // 5-digit random number
+            document.getElementById('jobID').innerText = randomJobID;
+        }
+
+        function generateRandomInstanceID() {
+            const randomInstanceID = Math.floor(10000 + Math.random() * 90000); // 4-digit random number
+            document.getElementById('instanceID').innerText = randomInstanceID;
+        }
+
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.innerText;
+
+
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+
+
+            textarea.select();
+            document.execCommand('copy');
+
+
+            document.body.removeChild(textarea);
+
+
+            element.style.backgroundColor = '#dff0d8'; // Light Green
+            setTimeout(() => {
+                element.style.backgroundColor = '#f5f5f5'; // Light Gray
+            }, 1000);
+        }
+
+        // Initial job and instance ID generation on page load
+        generateRandomJobID();
+        generateRandomInstanceID();
+        
+        
+        
+        
+        
+        
+        // ... (Your existing JavaScript code) ...
+
+        // Function to generate random code based on the current date
+        function generateRandomCode(type) {
+            const currentDate = new Date();
+            const formattedDate = `${currentDate.getMonth() + 1}${currentDate.getDate()}${currentDate.getFullYear()}`;
+
+            const code = `${type}${formattedDate}`;
+
+            // Create a text area to hold the text temporarily
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = code;
+            document.body.appendChild(tempTextArea);
+
+            // Select and copy the text
+            tempTextArea.select();
+            document.execCommand('copy');
+
+            // Remove the temporary text area
+            document.body.removeChild(tempTextArea);
+        }
+        </script>
+
+
+
+
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Job Organizer</title>
+        <style>
+        /* Your existing styles here */
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #fff;
+        }
+        </style>
+
+
+
+
+        <script>
+        // Your existing JavaScript code here
+        </script> 
+
+
+        <script>
+        document.querySelectorAll('.note-cell[contenteditable="false"]').forEach(function(cell) {
+            cell.addEventListener('click', function() {
+                copyToClipboard(cell.id);
+            });
+        });
+
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.innerText;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+
+            textarea.select();
+            document.execCommand('copy');
+
+            document.body.removeChild(textarea);
+
+            element.style.backgroundColor = '#55c360'; // Light Green
+            setTimeout(() => {
+                element.style.backgroundColor = '#1a202c'; // Light Gray
+            }, 1000);
+        }
+        </script>
+
+
+
+
+
+
+
+
+
+
+        <style>
+        /* Your existing styles */
+        h2 {
+            margin-top: 0px;
+            color: #333;
+            text-align: left;
+            padding: 10px;
+            font-size: 2px;
+            font-style: italic;
+        }
+        
+        .note-cell-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .note-cell-empty-box {
+            flex: 1;
+            display: inline;
+            justify-content: center;
+            height: auto;
+            border: 2px solid #55c360;
+            border-radius: 15px;
+            height: 45px;
+            margin: 5px;
+            padding: 11px;
+            font-weight: bold;
+            font-size: 12px;
+            color: #fff;
+            text-align: left;
+            align-content: center;
+            animation: fadeIn 0.5s ease;
+            cursor: text;
+            background-color: #1a202c;
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .note-cell-empty-box:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            background-color: #55c360;
+        }
+
+        .note-cell-empty {
+            flex: 1;
+            display: inline;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            max-height: 12px;
+            overflow: hidden;
+            border: 2px solid #55c360;
+            border-radius: 10px;
+            height: 11px;
+            margin: 1px;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 13px;
+            color: #fff;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+            margin-left: 9px;
+            cursor: text;
+            background-color: #1a202c;
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+
+
+        }
+
+        .note-cell-empty:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            background-color: #55c360;
+        }
+
+        .note-cell-empty.clicked {
+            color: #fff;
+        }
+
+        .copy-button,
+        .clear-button {
+            font-size: 12px;
+            margin-right: 300px;
+            height: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 10px;
+            margin: 4px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        .copy-button {
+            background-color: #56c361;
+            color: #fff;
+        }
+
+        .copy-button:hover {
+            background-color: #56c361;
+            color: #f5f5f5;
+            transform: scale(1.05);
+        }
+
+        .copy-button.clicked {
+            background-color: #5bc0de;
+            color: #fff;
+        }
+
+        .clear-button {
+            background-color: #2baffc;
+            color: #fff;
+        }
+
+        .clear-button:hover {
+            background-color: #e34045;
+            color: #f5f5f5;
+            transform: scale(1.05);
+        }
+        </style>
+
+
+
+
+
+
+
+        
+        <h2><i>Lead Details</i></h2>
+        
+
+        <!-- Your existing HTML -->
+
+        <!-- Empty cells and buttons -->
+        
+        <div class="note-cell-wrapper">
+            <div class="note-cell-empty"  id="emptyNote1" onclick="handleNoteClick(this)"  contenteditable="true"></div>
+            <button class="copy-button"  onclick="copyToClipboard('emptyNote1')">Copy</button>
+            <button class="clear-button"  onclick="clearText('emptyNote1')">Clear</button>
+        </div>
+
+        <div class="note-cell-wrapper">
+            <div class="note-cell-empty" id="emptyNote2" onclick="handleNoteClick(this)" contenteditable="false"></div>
+            <button class="copy-button" onclick="copyToClipboard('emptyNote2')">Copy</button>
+            <button class="clear-button" onclick="clearText('emptyNote2')">Clear</button>
+        </div>
+
+        <div class="note-cell-wrapper">
+            <div class="note-cell-empty" id="emptyNote3" onclick="handleNoteClick(this)" contenteditable="false"></div>
+            <button class="copy-button" onclick="copyToClipboard('emptyNote3')">Copy</button>
+            <button class="clear-button" onclick="clearText('emptyNote3')">Clear</button>
+        </div>
+
+        <!-- New buttons for automatic division -->
+        <div class="note-cell-wrapper" >
+            <div class="note-cell-empty" id="divisionInput" contenteditable="true" onkeydown="handleDivisionInput(event)"></div>
+
+		<i>/ 12 =</i>
+            <div class="note-cell-empty" id="divisionResult" contenteditable="false"></div>
+            <button class="copy-button" onclick="copyToClipboard('divisionResult')">Copy Result</button>
+        </div>
+
+        <div class="note-cell-wrapper" > 
+            <div class="note-cell-empty-box" id="emptyNote4" onclick="handleNoteClick(this)" contenteditable="false" ></div>
+        </div>
+
+        <script>
+        function handleNoteClick(element) {
+            element.classList.add('clicked');
+            if (element.innerText === 'Add your notes here') {
+                element.innerText = '';
+            }
+            element.contentEditable = true;
+
+            // Handle paste event to preserve styles
+            element.addEventListener('paste', (event) => {
+                event.preventDefault();
+                const text = (event.clipboardData || window.clipboardData).getData('text/plain');
+
+                // Remove existing content before inserting the pasted text
+                document.execCommand('selectAll', false, null);
+                document.execCommand('delete', false, null);
+
+                document.execCommand('insertHTML', false, `<span style="color: ${element.style.color}; font-size: ${element.style.fontSize}; font-weight: ${element.style.fontWeight}">${text}</span>`);
+            });
+        }
+
+
+        function clearText(elementId) {
+            const element = document.getElementById(elementId);
+            element.innerHTML = ''; // Clear the inner HTML
+            element.innerText = ''; // Clear the text content
+            element.style.color = '#fff';
+            element.style.fontSize = '13px';
+            element.style.fontWeight = 'bold';
+        }
+
+
+        function handleDivisionInput(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+
+                const inputElement = document.getElementById('divisionInput');
+                const resultElement = document.getElementById('divisionResult');
+
+                const inputValue = parseFloat(inputElement.innerText.replace(/,/g, ''));
+
+                if (!isNaN(inputValue)) {
+                    // Divide the input value by 12 and display the result in the second button
+                    const result = inputValue / 12;
+                    resultElement.innerText = result.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); // Display result with commas
+                } else {
+                    // If the input is not a valid number, display an error or handle it accordingly
+                    resultElement.innerText = 'Invalid Input';
+                }
+            }
+        }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #3498db;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            font-family: "FreeMono", monospace;
+            padding: 10px;
+            overflow: hidden;
+            margin-left: 8px;
+            margin-top: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            color: #fff;
+            max-width: 423px;
+            box-sizing: border-box;
+            resize: none;
+            max-height: 28px;
+            border: 2px solid #4caf50;
+            border-radius: 13px;
+            background-color: #1a202c;
+            margin-right: 13px;
+            align-items: center;
+            align-content: center;
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+
+            
+        }
+
+        textarea:hover{
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            background-color: #55c360;
+        }
+
+        button {
+            padding: 10px;
+            padding-top: 7px;
+            margin-top: -4px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 12px;
+            background-color: #2baffc;
+            color: white;
+            border: none;
+            height: 28px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            align-items: center;
+            align-content: center;
+            text-align: center;
+
+            
+            
+
+        }
+
+        button:hover {
+            background-color: #e34045;
+            color: #f5f5f5;
+            transform: scale(1.05);
+        }
+
+        #averages {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .average-container {
+            background-color: #2baffc;
+            font-size: 12px;
+            padding: 10px;
+            margin: auto;
+            margin-top: -6px;
+            margin-bottom: 7px;
+            border-radius: 10px;
+            border: 1px solid #2baffc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+            position: relative;
+            height: 5px;
+            width: 25px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin-top: -10px;
+        }
+
+        .average-container:hover {
+            transform: scale(1.05);
+        }
+
+        .average-item {
+            text-align: center;
+            color: #fff;
+        }
+
+        .tooltip {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 5px;
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            font-size: 11px;
+            width: 40px;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        .tooltip::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -10px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: #e74c3c transparent transparent transparent;
+        }
+
+        .average-container:hover .tooltip {
+            opacity: 1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2><i>Mnthly. Solar Acs.</i></h2>
+
+
+    <div class="input-container">
+        <textarea id="numbers" placeholder="Paste Monthly Solar Access here... (Press Enter to Calculate)"></textarea>
+        <button onclick="clearAll()">Clear</button>
+    </div>
+    <div id="averages"></div>
+
+    <script>
+        let arrayCount = 1; // Counter for arrays
+
+        document.getElementById("numbers").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                calculateAndAddAverages();
+            }
+        });
+
+        function calculateAndAddAverages() {
+            const textareaElement = document.getElementById("numbers");
+            const averagesElement = document.getElementById("averages");
+
+            const inputLines = textareaElement.value.split('\n').map(line => line.trim());
+
+            averagesElement.innerHTML = ''; // Clear existing averages
+
+            for (let i = 0; i < inputLines.length; i++) {
+                const line = inputLines[i];
+                const values = line.split(/\s+/).map(value => parseFloat(value.trim()));
+
+                if (!isNaN(values[0])) { // Exclude the first number in each line
+                    const total = values.slice(1).reduce((sum, value) => sum + value, 0);
+                    const average = total / (values.length - 1); // Exclude the first number
+
+                    const newAverageContainer = document.createElement('div');
+                    newAverageContainer.classList.add('average-container');
+
+                    const arrayLabel = document.createElement('div');
+                    arrayLabel.classList.add('tooltip');
+                    arrayLabel.textContent = `Array ${arrayCount}`;
+                    newAverageContainer.appendChild(arrayLabel);
+
+                    const newAverageItem = document.createElement('div');
+                    newAverageItem.classList.add('average-item');
+                    newAverageItem.textContent = `${average.toFixed(2)}`;
+                    newAverageContainer.appendChild(newAverageItem);
+
+                    // Insert the new average
+                    averagesElement.appendChild(newAverageContainer);
+
+                    // Increment the array counter
+                    arrayCount++;
+                }
+            }
+
+            // Clear the input field
+            textareaElement.value = "";
+        }
+
+        function clearAll() {
+            const textareaElement = document.getElementById("numbers");
+            const averagesElement = document.getElementById("averages");
+
+            // Clear input field and averages
+            textareaElement.value = "";
+            averagesElement.innerHTML = ""; // Clear all child elements
+            arrayCount = 1; // Reset the array counter
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+    <style>
+    
+        
+        .log-organizer-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .log-input {
+            flex: 1;
+            display: inline;
+            justify-content: center;
+            height: auto;
+            border: 2px solid #55c360;
+            border-radius: 13px;
+            max-height: 28px;
+            margin: 5px;
+            margin-top: 4px;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 11px;
+            color: #fff;
+            text-align: left;
+            align-content: center;
+            animation: fadeIn 0.5s ease;
+            cursor: text;
+            background-color: #1a202c;
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+            max-width: 317px;
+        }
+
+        .log-input:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            background-color: #55c360;
+        }
+        .organize-button {
+            padding: 8px 16px;
+            max-height: 28px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        .organize-button {
+            background-color: #55c361;
+            font-size: 12px;
+            height: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 12px;
+            margin: 4px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+        .organize-button:hover {
+            background-color: #56c361;
+            color: #f5f5f5;
+            transform: scale(1.05);
+       
+        }
+        .log-box {
+            border: 1px solid #ddd;
+            border-radius: 13px;
+            font-size: 11px;
+            line-height: 2px;
+            color: #fff;
+            text-align: left;
+            padding: 8px;
+            padding-top: 3px;
+            margin: 3.5px;
+            display: inline-block;
+            background-color: #55c361;
+            transition: transform 0.3s;
+            overflow: hidden;
+            height: 70px;
+            width: 98px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2><i>Simulation Log</i></h2>
+
+    
+    <div class="log-organizer-container">
+        <textarea id="logInput" class="log-input" placeholder="Paste simulation logs here..." onkeydown="if (event.key === 'Enter') { event.preventDefault(); organizeLogs(); }"></textarea>
+        <button onclick="organizeLogs()" class="organize-button">Organize Logs</button>
+        <button onclick="clearLogs()" class="clear-button">Clear</button>
+    </div>
+
+    <div id="logContainer"></div>
+
+    <script>
+        function organizeLogs() {
+            
+            var inputText = document.getElementById('logInput').value;
+
+            
+            var arrayLogs = inputText.split('Array ');
+
+            
+            var organizedLogs = [];
+            for (var i = 1; i < arrayLogs.length; i++) {
+                var arrayInfo = arrayLogs[i].split('\n');
+                var arrayNumberMatch = arrayInfo[0].match(/^(\d+)/);
+                if (arrayNumberMatch) {
+                    var arrayNumber = parseInt(arrayNumberMatch[1]);
+                    var noOfPanels = arrayInfo[1].trim().split(' ')[0];
+                    var azimuth = arrayInfo[1].match(/Azimuth = ([^,]+)/)[1];
+                    var tilt = arrayInfo[1].match(/Tilt = ([^,]+)/)[1];
+                    var annualACOutputMatch = arrayInfo.find(line => line.includes("Annual AC output"));
+                    var annualACOutput = annualACOutputMatch ? parseFloat(annualACOutputMatch.trim().split(' ')[4]) : 'N/A';
+
+                    organizedLogs.push({
+                        arrayNumber: arrayNumber,
+                        noOfPanels: noOfPanels,
+                        azimuth: azimuth,
+                        tilt: tilt,
+                        annualACOutput: annualACOutput
+                    });
+                }
+            }
+
+            
+            organizedLogs.sort((a, b) => a.arrayNumber - b.arrayNumber);
+
+           
+            var logContainer = document.getElementById('logContainer');
+            logContainer.innerHTML = ''; 
+
+            for (var j = 0; j < organizedLogs.length; j++) {
+                var log = organizedLogs[j];
+
+                
+                var logBox = document.createElement('div');
+                logBox.className = 'log-box';
+                logBox.innerHTML = `<p>Array ${log.arrayNumber}</p>
+                                   <p>No. of Panels: ${log.noOfPanels}</p>
+                                   <p>Azimuth: ${log.azimuth}</p>
+                                   <p>Tilt: ${log.tilt}</p>
+                                   <p>AC Output: ${log.annualACOutput}</p>`;
+
+                
+                logContainer.appendChild(logBox);
+            }
+
+            
+            document.getElementById('logInput').value = '';
+        }
+
+        function clearLogs() {
+            
+            document.getElementById('logInput').value = '';
+            document.getElementById('logContainer').innerHTML = '';
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+    <style>
+    h2 {
+        margin-top: 0px;
+        color: #333;
+        text-align: left;
+        padding: 10px;
+        font-size: 2px;
+    }
+
+    h3 {
+        font-family: 'Courier New', Courier, monospace;
+        display: flex;
+        border: 2px solid #55c361;
+        border-radius: 12px;
+        padding: 7px;
+        padding-bottom: 13px;
+        margin: auto;
+        margin-left: 10px;
+        margin-top: 10px;
+        background-color: #55c361;
+        color: #fff;
+        font-size: 17px;
+        font-weight: bold;
+        height: 10px;
+        width: 140px;
+        text-align: center;
+    }
+
+
+
+    body {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #1a202c;
+    }
+
+    .button-container {
+        width: 500px;
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .button {
+        display: inline-flex;
+        font-family: "FreeMono", monospace;
+        width: 100px;
+        height: 21px;
+        margin: 2px;
+        padding: 5px;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        font-size: 10px;
+        font-weight: lighter;
+        cursor: pointer;
+        border: 2px solid #56C361;
+        border-radius: 13px;
+        background-color: #1a202c;
+        color: #fff;
+        transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        margin-bottom: 8px;
+    }
+
+    .button:hover {
+        background-color: #55c360;
+        transform: scale(1.05);
+        color: #fff;
+        border: 2px solid #55c360;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        background-color: #55c360;
+    }
+
+    .button:active {
+        transform: scale(1.05);
+    }
+
+
+    .copied {
+        background-color: #2ecc71 !important;
+        /* Green color for feedback */
+    }
+
+    .note-container {
+        width: 350px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    textarea {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+    </style>
+
+    <h2><i>Quick responses</i></h2>
+
+
+    <div class="button-container">
+        <div class="button" onclick="copyText(this, 'Working on it for customer NAME -designer')">Working on it</div>
+
+        <div class="button" onclick="copyText(this, 'Hi! Your proposal is ready. Please visit EverBright link to view contract for customer NAME. Thank you! -designer')">EverBright Lead</div>
+
+        <div class="button" onclick="copyText(this, 'The lead for customer NAME is now uploaded in Enerflo -designer')">Lead Uploaded</div>
+
+        <div class="button" onclick="copyText(this, 'Maxed out all available roof planes for customer NAME -designer')">Maxed Out</div>
+
+        <div class="button" onclick="copyText(this, 'Hi! Unfortunately, we cannot proceed with the design for customer NAME\'s house due to excessive tree shading. -designer')">Extreme Shading</div>
+
+        <div class="button" onclick="copyText(this, 'Hi! To whom should I assign customer NAME EverBright lead to, as your name is not yet available in EverBright? -designer')">EverBright Assignee</div>
+
+        <div class="button" onclick="copyText(this, 'We have to account for growth over the next 25 years per our production warranty. So tree trimming is not advisable -designer')">Tree Trimming</div>
+
+        <div class="button" onclick="copyText(this, 'Hello! Could I please request the complete address or coordinates for customer NAME? -designer')">Request Address</div>
+
+        <div class="button" onclick="copyText(this, 'Hi! For customer NAME. Upon checking, we can only add 6 panels to proceed with your design request. Adding more panels will exceed the total roof coverage of the roof which violates the 33% rule requirement for the combined existing panels  and add-on panels. This is based on the updated Guideline from the AHJ/Texas fire code. Please let me know if this design of 6 panels is okay to proceed. Thanks! -designer')">33% Required Panels</div>
+
+        <div class="button" onclick="copyText(this, 'Apologies, but we can't fulfill the request for customer NAME. We can only add NO.PANELS, with a minimum requirement of 5 panels. Additional panels would exceed the 33% rule for total roof coverage, violating AHJ/Texas fire code guidelines. -designer')">33% Rule</div>
+
+        <div class="button" onclick="copyText(this, 'Hi, may we know your desired pricing and escalator in EverFixed for customer NAME? Thank you! -designer')">Pricing and Escalator</div>
+
+        <div class="button" onclick="copyText(this, 'We are unable to generate a quote using Everfixed or Flex in Everbright due to capped rate for customer NAME. Are you willing to change to EverOwn? -designer')">Error Capped rate</div>
+    </div>
+
+
+    <script>
+    function copyText(button, text) {
+        
+        var textarea = document.createElement('textarea');
+        textarea.value = text;     
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        button.classList.add('copied');
+
+        
+        setTimeout(function() {
+            button.classList.remove('copied');
+        }, 300);
+    }
+
+    function personalizedResponse(buttonNumber) {
+        // Replace these placeholders with personalized responses for buttons 11 and 12
+        let response;
+        if (buttonNumber === 'Button 11') {
+            response = 'Personalized response for Button 11';
+        } else if (buttonNumber === 'Button 12') {
+            response = 'Personalized response for Button 12';
+        }
+        alert(response);
+    }
+    </script>
+
+
+<script>
+    function copyText(button, message) {
+        var value = button.parentElement.parentElement.querySelector('.note-cell-empty').innerText;
+        message = message.replace("NAME", value);
+        navigator.clipboard.writeText(message).then(function() {  
+        }, function(err) {
+            
+        });
+    }
+</script>
+
+<script>
+    // Define a global variable and assign it a value
+    var designerName = "Marjo"; // Assign any default value or leave it empty
+
+    // Function to update the content of the designer div
+    function updateDesigner() {
+        // Get the designer div element
+        var designerDiv = document.getElementById("designer");
+        
+        // Update the content of the designer div with the value of the global variable
+        designerDiv.innerText = designerName;
+
+        
+    }
+
+    // Call the function to initially update the designer div
+    updateDesigner();
+
+    // Function to add text to the end of the content within a div
+    function addTextToDiv(className, additionalText) {
+        var containers = document.getElementsByClassName(className); // Get all elements with the specified class
+        for (var i = 0; i < containers.length; i++) { // Loop through each container
+            var buttons = containers[i].getElementsByClassName('button'); // Get all buttons inside the container
+            for (var j = 0; j < buttons.length; j++) { // Loop through each button
+                var button = buttons[j];
+                var currentText = button.getAttribute('onclick'); // Get the current onclick attribute value
+                // Replace '-designer' with the updated string
+                var updatedText = currentText.replace('-designer', '-' + designerName );
+                button.setAttribute('onclick', updatedText); // Update the onclick attribute value
+            }
+        }
+    }
+
+    // Call the function with the appropriate parameters
+    addTextToDiv('button-container', '');
+
+</script>
+
+
+
+
+
+
+
+
+        
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Button Link</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-left: 8px;
+            border: 2px solid #56c361;
+            border-radius: 10px;
+            width: 100px;
+            color: #fff;
+            text-align: center;
+            padding: 6px;
+            font-size: 11px;
+            cursor: default;
+            font-weight: bold;
+            background: #56c361;
+            height: 7px;
+            align-items: center;
+            align-content: center;
+            text-align: left;
+            padding-top: 1px;
+        }
+
+        a {
+            font-family: "FreeMono", monospace;
+            text-decoration: none;
+            align-items: center;
+            justify-content: center;
+            display: inline-flex;
+            margin: 5px;
+            width: 62px;
+            height: 15px;
+            padding: 10px;
+            text-align: center;
+            font-size: 10px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #1a202c;
+            border: 2px solid #55c360;
+            border-radius: 15px;
+            animation: fadeIn 0.5s ease;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        a:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            background-color: #55c360;
+            transform: scale(1.05);
+            transform: scale(1.05);
+            font-size: 10px;
+            color: #fff;
+        }
+        
+        .a:active {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #d2d3d5;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+            opacity: 50%;
+            color: #fff;
+            padding: 10px;
+            margin: auto;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            cursor: default;
+            font-size: 10px;
+            font-weight: bold;
+            color: #333a41;
+            bottom: 0;
+            border: 2px solid #333a41;
+            border-radius: 13px;
+            width: 465px;
+            height: ;
+        }
+
+        
+    </style>
+    
+
+    
+
+
+
+
+
+
+
+
+
+       
+
+
+
+
+    </div>
+
+
+</div></body></html>
