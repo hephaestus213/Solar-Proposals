@@ -107,7 +107,7 @@
 
 					<div class="button" onclick="copyText(this, 'Hi! Your proposal is ready. Please visit EverBright link to view contract for customer NAME. Maxed out all available roof planes -designer')">Maxed Out</div>
 
-					<div class="button" onclick="copyText(this, 'Hi! Unfortunately, we cannot proceed with the design for customer NAME\'s house due to excessive tree shading. -designer')">Extreme Shading</div>
+					<div class="button" onclick="copyText(this, 'Hi! Unfortunately, we cannot proceed with the design for customer NAME due to heavy tree shading. Is the homeowner willing to remove any trees inside their property? If yes , please use the image attached and encircle the trees to be removed. Thank you, -designer')">Extreme Shading</div>
 
 					<div class="button" onclick="copyText(this, 'Hi! To whom should I assign customer NAME EverBright lead to, as your name is not yet available in EverBright? -designer')">EverBright Assignee</div>
 
@@ -126,64 +126,105 @@
 		</div>
 
 <script>
-		        let arrayCount = 1; // Counter for arrays
+let arrayCount = 1; // Counter for arrays
 
-        document.getElementById("numbers").addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                calculateAndAddAverages();
+document.getElementById("numbers").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        calculateAndAddAverages();
+    }
+});
+
+function calculateAndAddAverages() {
+    const textareaElement = document.getElementById("numbers");
+    const averagesElement = document.getElementById("averages");
+
+    const inputLines = textareaElement.value.split('\n').map(line => line.trim());
+
+    averagesElement.innerHTML = ''; // Clear existing averages
+    let currentValues = [];
+    let currentTotal = 0;
+    let currentItemCount = 0;
+
+    for (let i = 0; i < inputLines.length; i++) {
+        const line = inputLines[i];
+        const value = parseFloat(line);
+
+        if (!isNaN(value)) {
+            if (currentItemCount === 0) {
+                // Starting a new array
+                currentValues = [];
+                currentTotal = 0;
+            } else {
+                currentValues.push(value);
+                currentTotal += value;
             }
-        });
+            currentItemCount++;
 
-        function calculateAndAddAverages() {
-            const textareaElement = document.getElementById("numbers");
-            const averagesElement = document.getElementById("averages");
+            if (currentItemCount === 13) { // After every 13th number, calculate and display the average
+                const average = currentTotal / 12; // Average of 12 values
 
-            const inputLines = textareaElement.value.split('\n').map(line => line.trim());
+                const newAverageContainer = document.createElement('div');
+                newAverageContainer.classList.add('average-container');
 
-            averagesElement.innerHTML = ''; // Clear existing averages
+                const arrayLabel = document.createElement('div');
+                arrayLabel.classList.add('tooltip');
+                arrayLabel.textContent = `Array ${arrayCount}`;
+                newAverageContainer.appendChild(arrayLabel);
 
-            for (let i = 0; i < inputLines.length; i++) {
-                const line = inputLines[i];
-                const values = line.split(/\s+/).map(value => parseFloat(value.trim()));
+                const newAverageItem = document.createElement('div');
+                newAverageItem.classList.add('average-item');
+                newAverageItem.textContent = `${average.toFixed(2)}`;
+                newAverageContainer.appendChild(newAverageItem);
 
-                if (!isNaN(values[0])) { // Exclude the first number in each line
-                    const total = values.slice(1).reduce((sum, value) => sum + value, 0);
-                    const average = total / (values.length - 1); // Exclude the first number
+                // Insert the new average
+                averagesElement.appendChild(newAverageContainer);
 
-                    const newAverageContainer = document.createElement('div');
-                    newAverageContainer.classList.add('average-container');
+                // Increment the array counter
+                arrayCount++;
 
-                    const arrayLabel = document.createElement('div');
-                    arrayLabel.classList.add('tooltip');
-                    arrayLabel.textContent = `Array ${arrayCount}`;
-                    newAverageContainer.appendChild(arrayLabel);
-
-                    const newAverageItem = document.createElement('div');
-                    newAverageItem.classList.add('average-item');
-                    newAverageItem.textContent = `${average.toFixed(2)}`;
-                    newAverageContainer.appendChild(newAverageItem);
-
-                    // Insert the new average
-                    averagesElement.appendChild(newAverageContainer);
-
-                    // Increment the array counter
-                    arrayCount++;
-                }
+                // Reset current item count
+                currentItemCount = 0;
             }
-
-            // Clear the input field
-            textareaElement.value = "";
         }
+    }
 
-        function clearAll() {
-            const textareaElement = document.getElementById("numbers");
-            const averagesElement = document.getElementById("averages");
+    // Clear the input field
+    textareaElement.value = "";
+}
 
-            // Clear input field and averages
-            textareaElement.value = "";
-            averagesElement.innerHTML = ""; // Clear all child elements
-            arrayCount = 1; // Reset the array counter
-        };
+function clearAll() {
+    const textareaElement = document.getElementById("numbers");
+    const averagesElement = document.getElementById("averages");
+
+    // Clear input field and averages
+    textareaElement.value = "";
+    averagesElement.innerHTML = ""; // Clear all child elements
+    arrayCount = 1; // Reset the array counter
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		
 
 
