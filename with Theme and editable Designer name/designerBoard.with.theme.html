@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Job Organizer</title>
+		
+	
+
+	<link id="css-link" rel="stylesheet" type="text/css" href="01-css/style.css">
+
+    <link rel="icon" href="03-images/logo.png"
+          type="image/x-icon">
+</head>
+<body>
+
+ 
+        <div class="container">
+		
+			<div class="input-wrapper">
+<input type="text" id="designer" onkeypress="if(event.keyCode === 13) { handleKeyUp(event); }">
+
+
+				<select id="css-selector" onchange="applyCss()">
+					<option value="original">Original</option>
+					<option value="gray">Gray-Blue</option>
+					<option value="soft-pink">Soft Pink</option>
+				</select>
+			</div>
+
+			
+			<div id="timer">00:00:00.000</div>
+				<button id="startBtn" class="timer-btn" onclick="startTimer()">START</button>
+				<button id="stopBtn" class="timer-btn" onclick="stopTimer()">STOP</button>
+				<button id="resetBtn" class="timer-btn" onclick="resetTimer()">RESET</button>
+
+			<div id="jobDetails">
+
+				<button id="jobID" class="field-btn rounded-rectangle" onclick="copyToClipboard('jobID')" >00000</button>
+				<button id="instanceID" class="field-btn rounded-rectangle" onclick="copyToClipboard('instanceID')">00000</button>
+        
+			</div>
+
+
+			<div id="elapsedTime"></div>
+			<div id="footer"></div>
+
+
+				<!-- Buttons for random code generation -->
+				<button class="random-code-button" onclick="generateRandomCode('DOWNTIME')">DOWNTIME</button>
+				<button class="random-code-button" onclick="generateRandomCode('BREAK')">BREAK</button>
+				<button class="random-code-button" onclick="generateRandomCode('COACHING')">COACHING</button>
+				<button class="random-code-button" onclick="generateRandomCode('PRACTICE')">PRACTICE</button>
+
+
+
+			<h2><i>Lead Details</i></h2>
+			<!-- Empty cells and buttons -->
+        
+				<div class="note-cell-wrapper">
+					<div class="note-cell-empty" id="emptyNote1" onclick="handleNoteClick(this)" placeholder="Enter name" contenteditable="true"></div>
+					<button class="copy-button" onclick="copyToClipboard('emptyNote1')">Copy</button>
+					<button class="clear-button" onclick="clearText('emptyNote1')">Clear</button>
+				</div>
+
+				<div class="note-cell-wrapper">
+					<div class="note-cell-empty" id="emptyNote2" onclick="handleNoteClick(this)" placeholder="Enter address" contenteditable="false"></div>
+					<button class="copy-button" onclick="copyToClipboard('emptyNote2')">Copy</button>
+					<button class="clear-button" onclick="clearText('emptyNote2')">Clear</button>
+				</div>
+
+				<div class="note-cell-wrapper">
+					<div class="note-cell-empty" id="emptyNote3" onclick="handleNoteClick(this)" placeholder="Enter sales representative" contenteditable="false"></div>
+					<button class="copy-button" onclick="copyToClipboard('emptyNote3')">Copy</button>
+					<button class="clear-button" onclick="clearText('emptyNote3')">Clear</button>
+				</div>
+
+
+			<!-- New buttons for automatic division -->
+			
+				<div class="note-cell-wrapper" >
+					<div class="note-cell-empty" id="divisionInput" onkeydown="handleDivisionInput(event)"placeholder="Enter Production" contenteditable="true"></div>
+
+			<i>/ 12 =</i>
+				<div class="note-cell-empty" id="divisionResult" contenteditable="false"></div>
+					<button class="copy-button" onclick="copyToClipboard('divisionResult')">Copy Result</button>
+				</div>
+				<div class="existing-content">   
+					</div>
+				<div class="consumption-bar-container">
+				<div class="consumption-bar" id="textArea" contenteditable="true" placeholder="Paste your data here..."></div>
+					<button class="clear-button" onclick="clearTextArea()" aria-label="Clear Text Area">Clear</button>
+			</div>
+				
+			
+			<h2><i>Mnthly. Solar Acs.</i></h2>
+				<div class="input-container">
+					<textarea id="numbers" placeholder="Paste Monthly Solar Access here... (Press Enter to Calculate)"></textarea>
+					<button onclick="clearAll()">Clear</button>
+				</div>
+			
+			
+			<div id="averages"></div>
+			
+			<h2><i>Simulation Log</i></h2>
+				<div class="log-organizer-container">
+					<textarea id="annualInput" class="annual-input" placeholder="Paste annual production here..."></textarea>
+					<textarea id="logInput" class="log-input" placeholder="Paste simulation logs here..." onkeydown="if (event.key === 'Enter') { event.preventDefault(); organizeLogs(); }"></textarea>
+					<button onclick="organizeLogs()" class="organize-button">Organize Logs</button>
+					<button onclick="clearLogs()" class="clear-button">Clear</button>
+				</div>
+			
+			<div id="logContainer"></div>
+			
+			<h2><i>Quick responses</i></h2>
+				<div class="button-container" id="">
+					<div class="button" onclick="copyText(this, 'Working on it for customer NAME -designer')">Working on it</div>
+
+					<div class="button" onclick="copyText(this, 'Hi! Your proposal is ready. Please visit EverBright link to view contract for customer NAME. Thank you! -designer')">EverBright Lead</div>
+
+					<div class="button" onclick="copyText(this, 'The lead for customer NAME is now uploaded in Enerflo -designer')">Enerflo Lead Uploaded</div>
+
+					<div class="button" onclick="copyText(this, 'Hi! Your proposal is ready. Please visit EverBright link to view contract for customer NAME. Maxed out all available roof planes -designer')">Maxed Out</div>
+
+					<div class="button" onclick="copyText(this, 'Hi! Unfortunately, we cannot proceed with the design for customer NAME due to heavy tree shading. Is the homeowner willing to remove any trees inside their property? If yes , please use the image attached and encircle the trees to be removed. Thank you, -designer')">Extreme Shading</div>
+
+					<div class="button" onclick="copyText(this, 'Hi! To whom should I assign customer NAME EverBright lead to, as your name is not yet available in EverBright? -designer')">EverBright Assignee</div>
+
+					<div class="button" onclick="copyText(this, 'We have to account for growth over the next 25 years per our production warranty. So tree trimming is not advisable -designer')">Tree Trimming</div>
+
+					<div class="button" onclick="copyText(this, 'Hello! Could I please request the complete address or coordinates for customer NAME? -designer')">Request Address</div>
+
+					<div class="button" onclick="copyText(this, 'Hi! For customer NAME. Upon checking, we can only add 6 panels to proceed with your design request. Adding more panels will exceed the total roof coverage of the roof which violates the 33% rule requirement for the combined existing panels  and add-on panels. This is based on the updated Guideline from the AHJ/Texas fire code. Please let me know if this design of 6 panels is okay to proceed. Thanks! -designer')">33% Required Panels</div>
+
+					<div class="button" onclick="copyText(this, 'Apologies, but we can't fulfill the request for customer NAME. We can only add NO.PANELS, with a minimum requirement of 5 panels. Additional panels would exceed the 33% rule for total roof coverage, violating AHJ/Texas fire code guidelines. -designer')">33% Rule</div>
+
+					<div class="button" onclick="copyText(this, 'Hi, may we know your desired pricing and escalator in EverFixed for customer NAME? Thank you! -designer')">Pricing and Escalator</div>
+
+					<div class="button" onclick="copyText(this, 'We are unable to generate a quote using Everfixed or Flex in Everbright due to capped rate for customer NAME. Are you willing to change to EverOwn? -designer')">Error Capped rate</div>
+				</div>
+		</div>
+
+
+
+ <script src="02-js/script.js"></script>
+
+
+</body>
+</html>
